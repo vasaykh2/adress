@@ -1,0 +1,101 @@
+{% if id is not defined %}{% set id = random() %}{% endif %}
+
+<div id="makeroi-city-twig-{{ id }}" class="twig-root">
+    {# =========================================================================================================== #}
+    {# Место для размещения css кода твига #}
+    {# Обратите внимание, весь код используется с префиксом в виде id твига! #}
+    {# Использование стилей без префикса - запрещено! #}
+    {% block styles %}
+        <style>
+            .card-fields__top-name-input-wrapper.js-card-name #makeroi-city-twig-{{ id }} {
+                z-index: 1000;
+                width: 90%;
+                position: absolute;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block {
+                z-index: 12;
+                position: absolute;
+                background: white;
+                width: 100%;
+                border-radius: 0 5px 5px 5px;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list {
+                background-color: #fff;
+                max-height: 300px;
+                overflow: hidden auto;
+                padding: 0;
+                border: 1px solid #e8e8e8;
+                border-radius: 0 5px 5px 5px;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list::-webkit-scrollbar {
+                width: 7px;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list::-webkit-scrollbar-thumb {
+                background: #CDCDCD;
+                border-radius: 20px;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list::-webkit-scrollbar-track {
+                background: #E8E8E8;
+                border-radius: 5px;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list .city-item {
+                padding: 5px 12px;
+                cursor: pointer;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list li.item {
+                border-bottom: 1px solid #ececec;
+                list-style: none;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list .title-item {
+                font-weight: 600;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list .footer {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list .region-item {
+                color: #989898;
+                width: 70%;
+                margin-right: 5px;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list .type-item {
+                color: #989898;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list li.item:hover {
+                background-color: #e4e4e433;
+                border-bottom: 1px solid #cdcdcd;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list li.item:last-child {
+                border: none;
+            }
+
+            #makeroi-city-twig-{{ id }} > .makeroi-city-hint-block > .list:empty {
+                display: none;
+            }
+        </style>
+    {% endblock %}
+    {# =========================================================================================================== #}
+
+
+    {# =========================================================================================================== #}
+    {# Место для размещения html кода твига #}
+    {% block content %}
+        <div class="makeroi-city-hint-block">
+            <div class="list"></div>
+        </div>
+    {% endblock %}
+    {# =========================================================================================================== #}
+</div>
