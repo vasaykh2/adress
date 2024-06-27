@@ -93,7 +93,6 @@ export default class App {
     );
     return true;
   }
-  // _________--------------+++++++++++++++=--------------_______________
 
   private async makeAddress(): Promise<void> {
     const AmoCRM = (window as any).APP;
@@ -108,7 +107,7 @@ export default class App {
       if (AmoCRM.data.is_card) {
         // const $titleCountry = $('[title="Страна"]');
         // const $fieldCountry = $titleCountry.closest('div').next().find('input')
-        const fieldId = "1156795";
+        const fieldId = "1156795"; // поле Страна - инпут
         // CFV[1156795]
         const $field = $('[name="CFV[' + fieldId + ']"]');
 
@@ -251,9 +250,7 @@ export default class App {
         $block.on("click mousedown", "li", (e: Event) => {
           const $selected = $(e.currentTarget as HTMLElement);
           let value = $selected.attr("data-value");
-          // const postalCode = $selected.attr("data-postal");
-          // const fieldId = $selected.parents(".linked-form__field").attr("data-id");
-          // const amoCF = AmoCRM.getAccount().cf;
+
           if (value !== undefined) {
             $field.val(value).trigger("change");
           }
@@ -288,42 +285,8 @@ export default class App {
     return await this.searchAddress();
   }
 
-  // private cardAnalyser(): void {
-  //   const APPCurrentEntity = (window as any).APP.data.current_entity;
-  //   if (APPCurrentEntity === "leads") {
-  //     const settings = this.loadSettings();
-  //     const idInputs: string[] = [];
-  //     Object.values(settings).forEach((value) => {
-  //       idInputs.push(value);
-  //     });
-  //     const inputs: (HTMLInputElement | null)[] = [];
-  //     idInputs.forEach((id) => {
-  //       inputs.push(document.querySelector(`input[name="CFV[${id}]"]`));
-  //     });
-  //     const inputSum = inputs.splice(-1, 1)[0];
-  //     if (inputSum !== this.inputForSum && this.inputForSum) {
-  //       this.inputForSum.value = "";
-  //     }
-  //     this.inputForSum = inputSum;
-
-  //     if (inputs.length > 0 && inputSum) {
-  //       inputs.forEach((summand) => {
-  //         // Удаляем существующий обработчик событий 'change'
-  //         summand?.removeEventListener("change", () => {
-  //           this.adder(inputs, inputSum);
-  //         });
-  //         // Добавляем новый обработчик событий 'change'
-  //         summand?.addEventListener("change", () => {
-  //           this.adder(inputs, inputSum);
-  //         });
-  //       });
-  //       this.adder(inputs, inputSum);
-  //     }
-  //   }
-  // }
-
+  // для хардкода "Твер"
   private suggestions() {
-    // Твер
     return [
       {
         value: "Тверская обл",
